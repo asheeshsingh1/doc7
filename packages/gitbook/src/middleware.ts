@@ -225,7 +225,7 @@ export async function middleware(request: NextRequest) {
         headers.set('x-gitbook-customization', customization);
     }
 
-    const theme = url.searchParams.get('theme');
+    const theme = "dark"
     if (theme) {
         headers.set('x-gitbook-theme', theme);
     }

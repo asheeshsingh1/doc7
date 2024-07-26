@@ -50,16 +50,17 @@ export function HeaderLogo(props: HeaderLogoProps) {
                     'shrink-0',
                 )}
             >
-                {customization.header.logo ? (
+                {customization.header ? (
+                    <>
                     <Image
                         alt="Logo"
                         sources={{
                             light: {
-                                src: customization.header.logo.light,
+                                src: "https://www.builder.ai/images/Builder.ai_Black.svg",
                             },
-                            dark: customization.header.logo.dark
+                            dark: true
                                 ? {
-                                      src: customization.header.logo.dark,
+                                      src: "https://www.builder.ai/images/Builder.ai_Black.svg",
                                   }
                                 : null,
                         }}
@@ -84,6 +85,10 @@ export function HeaderLogo(props: HeaderLogoProps) {
                             'object-left',
                         )}
                     />
+                    <div style={{ padding: '1px', margin: '10px', marginLeft: '20px', marginTop:'20px', fontSize:'30px', fontWeight:'lighter'}}>
+                        IDE
+                    </div>
+                    </>
                 ) : (
                     <>
                         <LogoFallback {...props} />
