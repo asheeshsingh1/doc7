@@ -24,8 +24,20 @@ jobs:
                   curl -fsSL https://bun.sh/install | bash
                   echo 'export BUN_INSTALL="$HOME/.bun"' >> $GITHUB_ENV
                   echo 'export PATH="$BUN_INSTALL/bin:$PATH"' >> $GITHUB_ENV
-                  ~/.bun/bin/bun install
-                  ~/.bun/bin/bun build
+                  source $HOME/.bashrc
+                  bun --version
+            - name: Install dependencies
+              run: |
+                  export BUN_INSTALL="$HOME/.bun"
+                  export PATH="$BUN_INSTALL/bin:$PATH"
+                  bun install
+              working-directory: ./packages # Adjust this if your package.json is in a different directory
+            - name: Build the application
+              run: |
+                  export BUN_INSTALL="$HOME/.bun"
+                  export PATH="$BUN_INSTALL/bin:$PATH"
+                  bun build
+              working-directory: ./packages # Adjust this if necessary
             - name: Build And Deploy
               id: builddeploy
               uses: Azure/static-web-apps-deploy@v1
