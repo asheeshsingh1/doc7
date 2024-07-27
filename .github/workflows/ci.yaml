@@ -51,27 +51,27 @@ jobs:
                   SENTRY_ORG: ${{ vars.SENTRY_ORG }}
                   SENTRY_PROJECT: ${{ vars.SENTRY_PROJECT }}
                   SENTRY_DSN: ${{ vars.SENTRY_DSN }}
-            - id: cloudflare
-              name: Publish to Cloudflare Pages
-              uses: cloudflare/pages-action@v1
-              with:
-                  apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-                  accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                  projectName: ${{ vars.CLOUDFLARE_PROJECT_NAME }}
-                  directory: ./packages/gitbook/.vercel/output/static
-                  gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-                  workingDirectory: ./
-            - name: Outputs
-              run: |
-                  echo "ID: ${{ steps.cloudflare.outputs.id }}"
-                  echo "URL: ${{ steps.cloudflare.outputs.url }}"
-                  echo "Environment: ${{ steps.cloudflare.outputs.environment }}"
-                  echo "Alias: ${{ steps.cloudflare.outputs.alias }}"
-            - name: Archive build output
-              uses: actions/upload-artifact@v4
-              with:
-                  name: build-output
-                  path: .vercel/
+            # - id: cloudflare
+            #   name: Publish to Cloudflare Pages
+            #   uses: cloudflare/pages-action@v1
+            #   with:
+            #       apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+            #       accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+            #       projectName: ${{ vars.CLOUDFLARE_PROJECT_NAME }}
+            #       directory: ./packages/gitbook/.vercel/output/static
+            #       gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+            #       workingDirectory: ./
+            # - name: Outputs
+            #   run: |
+            #       echo "ID: ${{ steps.cloudflare.outputs.id }}"
+            #       echo "URL: ${{ steps.cloudflare.outputs.url }}"
+            #       echo "Environment: ${{ steps.cloudflare.outputs.environment }}"
+            #       echo "Alias: ${{ steps.cloudflare.outputs.alias }}"
+            # - name: Archive build output
+            #   uses: actions/upload-artifact@v4
+            #   with:
+            #       name: build-output
+            #       path: .vercel/
     visual-testing:
         runs-on: ubuntu-latest
         name: Visual Testing
