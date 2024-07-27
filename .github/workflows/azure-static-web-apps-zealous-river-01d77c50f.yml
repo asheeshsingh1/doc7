@@ -24,6 +24,10 @@ jobs:
                   curl -fsSL https://bun.sh/install | bash
                   export BUN_INSTALL="$HOME/.bun"
                   export PATH="$BUN_INSTALL/bin:$PATH"
+                  echo 'export BUN_INSTALL="$HOME/.bun"' >> $HOME/.bashrc
+                  echo 'export PATH="$BUN_INSTALL/bin:$PATH"' >> $HOME/.bashrc
+                  source $HOME/.bashrc
+                  bun --version
             - name: Install dependencies
               run: bun install
               working-directory: ./packages # Adjust this if your package.json is in a different directory
