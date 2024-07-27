@@ -52,42 +52,51 @@ export function HeaderLogo(props: HeaderLogoProps) {
             >
                 {customization.header ? (
                     <>
-                    <Image
-                        alt="Logo"
-                        sources={{
-                            light: {
-                                src: "https://www.builder.ai/images/Builder.ai_Black.svg",
-                            },
-                            dark: true
-                                ? {
-                                      src: "https://www.builder.ai/images/Builder.ai_Black.svg",
-                                  }
-                                : null,
-                        }}
-                        sizes={[
-                            {
-                                media: '(max-width: 1024px)',
-                                width: 128,
-                            },
-                            {
-                                width: 192,
-                            },
-                        ]}
-                        priority="high"
-                        style={tcls(
-                            'max-w-[8rem]',
-                            'lg:max-w-[12rem]',
-                            'max-h-[3rem]',
-                            'rounded',
-                            'straight-corners:rounded-sm',
-                            'overflow-hidden',
-                            'object-contain',
-                            'object-left',
-                        )}
-                    />
-                    <div style={{ padding: '1px', margin: '10px', marginLeft: '20px', marginTop:'20px', fontSize:'30px', fontWeight:'lighter'}}>
-                        IDE
-                    </div>
+                        <Image
+                            alt="Logo"
+                            sources={{
+                                light: {
+                                    src: 'https://www.builder.ai/images/Builder.ai_Black.svg',
+                                },
+                                dark: true
+                                    ? {
+                                          src: 'https://www.builder.ai/images/Builder.ai_Black.svg',
+                                      }
+                                    : null,
+                            }}
+                            sizes={[
+                                {
+                                    media: '(max-width: 1024px)',
+                                    width: 128,
+                                },
+                                {
+                                    width: 192,
+                                },
+                            ]}
+                            priority="high"
+                            style={tcls(
+                                'max-w-[8rem]',
+                                'lg:max-w-[12rem]',
+                                'max-h-[3rem]',
+                                'rounded',
+                                'straight-corners:rounded-sm',
+                                'overflow-hidden',
+                                'object-contain',
+                                'object-left',
+                            )}
+                        />
+                        <div
+                            style={{
+                                padding: '1px',
+                                margin: '10px',
+                                marginLeft: '20px',
+                                marginTop: '20px',
+                                fontSize: '30px',
+                                fontWeight: 'lighter',
+                            }}
+                        >
+                            IDE
+                        </div>
                     </>
                 ) : (
                     <>
